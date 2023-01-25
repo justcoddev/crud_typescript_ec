@@ -8,10 +8,103 @@
   <title>Cursos de TypeScript usando expor e import</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="shortcut icon" href="assets/img/favicon.png">
+
+  <style>
+    body {
+      padding-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      background-color: antiquewhite;
+      padding: 10px 0;
+    }
+
+    footer a {
+      color: black;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Index</h1>
+  <div class="container">
+    <h1>Registro de Finanzas</h1>
+
+    <!-- FORMULARIO -->
+
+    <form id="form">
+      <div class="row">
+        <div class="four columns">
+          <!-- SELECT PARA SELECCCIONAR CREDITO / DEBITO -->
+          <label for="creditDebitSelect">Crédito / Débito</label>
+          <select class="u-full-width" id="creditDebitSelect" required>
+            <option value="Crédito">Crédito</option>
+            <option value="Débito">Débito</option>
+          </select>
+        </div>
+        <div class="four columns">
+          <!-- INPUT PARA DE / HACIA -->
+          <label for="toFromInput">De / Hacia</label>
+          <input class="u-full-width" type="text" placeholder="Nombre de la persona o entidad" id="toFromInput"
+            required>
+        </div>
+        <div class="four columns">
+          <!-- INPUT PARA Cantidad ($) -->
+          <label for="amountInput">Cantidad ($)</label>
+          <input class="u-full-width" type="number" placeholder="1000" id="amountInput" required>
+        </div>
+      </div>
+      <label for="details">Detalles</label>
+      <textarea class="u-full-width" placeholder="Detalles" id="details"></textarea>
+      <!-- INPUT PARA RESPALDO CORREO ELECTRONICO -->
+      <label class="example-send-yourself-copy">
+        <input type="checkbox" id="sendEmail">
+        <span class="label-body">Respaldo por correo electrónico</span>
+      </label>
+      <input class="button-primary" type="submit" value="Agregar">
+    </form>
+
+    <!-- TABLA CON TRANSACCIONES -->
+
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Crédito / Débito</th>
+          <th>De / Hacia</th>
+          <th>Cantidad ($)</th>
+          <th>Detalles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Crédito</td>
+          <td>Dave Gamache</td>
+          <td>- 250</td>
+          <td>Concierto</td>
+        </tr>
+        <tr>
+          <td>Débito</td>
+          <td>Dwayne Johnson</td>
+          <td>+ 100</td>
+          <td>Entrenamiento</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total: -$150</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- FOOTER -->
+
+    <footer id="footer">
+      <a href="https://www.youtube.com/c/webtoriales" target="_blank" rel=”noreferrer”>Webtoriales</a>
+    </footer>
+  </div>
+
+
 
   <script src="bundle.js"></script>
 </body>
