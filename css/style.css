@@ -1,0 +1,25 @@
+body {
+  padding-top: 20px;
+}
+
+
+
+
+
+table thead {
+  background-color: blueviolet;
+  color: white;
+}
+
+
+
+
+footer {
+  text-align: center;
+  background-color: antiquewhite;
+  padding: 10px 0;
+}
+
+footer a {
+  color: black;
+}
