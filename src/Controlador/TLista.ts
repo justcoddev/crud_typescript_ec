@@ -89,13 +89,6 @@ const ciudadInput = document.querySelector('#ciudadInput') as HTMLInputElement;
 
 
 
-// function eliminarProductos(cod: number) {
-//   ListarHeroes = ListarHeroes.filter(heroes => heroes.Codigo !== cod);
-
-//   cleanHTML();
-//   mostrarProducto();
-// }
-
 
 
 
@@ -114,7 +107,7 @@ function validarFormulario(e: { preventDefault: () => void; }) {
   }
 
   if (edit) {
-    // editarProducto();
+    editarProducto();
     edit = false;
 
   } else {
@@ -172,7 +165,7 @@ function mostrarProducto() {
 
     // button eliminar
     const delete_btn = document.createElement('button');
-    // delete_btn.onclick = () => eliminarProductos(Codigo);
+    delete_btn.onclick = () => eliminarProductos(cod);
     delete_btn.textContent = 'Eliminar';
     delete_btn.classList.add('btn', 'container__btn_delete');
     parrafo.append(delete_btn);
@@ -203,6 +196,42 @@ function cargarProductos(Heroes: { cod: string; nom: string; eda: string; ciu: s
   edit = true;
 }
 
+function editarProducto() {
+  // objProducto.idProducto = id_.value;
+  objProducto.cod = codeInput.value;
+  objProducto.nom = nameHeroInput.value;
+  objProducto.eda = edadInput.value;
+  objProducto.ciu = ciudadInput.value;
+
+  listarHeroes.map(Heroes => {
+
+    if (Heroes.cod === objProducto.cod) {
+      Heroes.cod = objProducto.cod;
+      Heroes.nom = objProducto.nom;
+      Heroes.eda = objProducto.eda;
+      Heroes.ciu = objProducto.ciu;
+    }
+
+  });
+
+  cleanHTML();
+  mostrarProducto();
+
+  formulario.reset();
+
+  // formulario.querySelector('btn_Add').textContent = 'Agregar';
+
+  edit = false;
+}
+
+function eliminarProductos(cod: string) {
+  listarHeroes = listarHeroes.filter(Heroes => Heroes.cod !== cod);
+
+  cleanHTML();
+  mostrarProducto();
+}
+
+
 
 function cleanHTML() {
   const contenedor = document.querySelector('.tbody') as HTMLBodyElement;
@@ -214,31 +243,4 @@ function cleanHTML() {
 
 
 
-// function editarProducto() {
-//   // objProducto.idProducto = id_.value;
-//   objProducto.cod = codeInput.value;
-//   objProducto.nom = nameHeroInput.value;
-//   objProducto.eda = edadInput.value;
-//   objProducto.ciu = ciudadInput.value;
-
-//   ListarHeroes.map(Heroes => {
-
-//     if (Heroes.Codigo === parseInt(objProducto.cod)) {
-//       Heroes.Codigo = parseInt(objProducto.cod);
-//       Heroes.Nombre = objProducto.nom;
-//       Heroes.Edad = parseInt(objProducto.eda);
-//       Heroes.Ciudad = objProducto.ciu;
-//     }
-
-//   });
-
-//   cleanHTML();
-//   mostrarProducto();
-
-//   formulario.reset();
-
-//   // formulario.querySelector('btn_Add').textContent = 'Agregar';
-
-//   edit = false;
-// }
 
