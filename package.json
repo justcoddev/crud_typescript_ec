@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "webpack serve --mode development --open --port=8083"
+    "start": "webpack serve --mode development --open "
   },
   "author": "",
   "license": "ISC"
