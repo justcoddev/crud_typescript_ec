@@ -88,14 +88,6 @@ const ciudadInput = document.querySelector('#ciudadInput') as HTMLInputElement;
 // }
 
 
-// function cleanObjeto() {
-//   objProducto.cod = '';
-//   objProducto.nom = '';
-//   objProducto.eda = '';
-//   objProducto.ciu = '';
-// }
-
-
 
 // function eliminarProductos(cod: number) {
 //   ListarHeroes = ListarHeroes.filter(heroes => heroes.Codigo !== cod);
@@ -106,18 +98,7 @@ const ciudadInput = document.querySelector('#ciudadInput') as HTMLInputElement;
 
 
 
-// function cargarProductos(Heroes: { Codigo: any; Nombre: any; Edad: any; Ciudad: any; }) {
-//   const { Codigo, Nombre, Edad, Ciudad } = Heroes;
-//   codeInput.value = Codigo;
-//   nameHeroInput.value = Nombre;
-//   edadInput.value = Edad;
-//   ciudadInput.value = Ciudad;
 
-//   objProducto.cod = Codigo;
-
-//   // formulario.querySelector('button[type="submit"]').textContent = 'Aceptar';
-//   edit = true;
-// }
 
 formulario.addEventListener('submit', validarFormulario);
 
@@ -146,6 +127,7 @@ function validarFormulario(e: { preventDefault: () => void; }) {
   }
 }
 
+
 function addProducto() {
   listarHeroes.push({
     ...objProducto
@@ -153,9 +135,17 @@ function addProducto() {
 
 
   mostrarProducto();
-  // formulario.reset();
-  // cleanObjeto();
+  formulario.reset();
+  cleanObjeto();
 
+}
+
+
+function cleanObjeto() {
+  objProducto.cod = '';
+  objProducto.nom = '';
+  objProducto.eda = '';
+  objProducto.ciu = '';
 }
 
 
@@ -175,7 +165,7 @@ function mostrarProducto() {
 
     // button editar
     const edit_btn = document.createElement('button');
-    // edit_btn.onclick = () => cargarProductos({ Heroes });
+    edit_btn.onclick = () => cargarProductos(Heroes);
     edit_btn.textContent = 'Editar';
     edit_btn.classList.add('btn', 'container__btn_editar');
     parrafo.append(edit_btn);
@@ -196,6 +186,23 @@ function mostrarProducto() {
   console.log(listarHeroes);
   console.log(codeInput.value, nameHeroInput.value, edadInput.value, ciudadInput.value);
 }
+
+
+function cargarProductos(Heroes: { cod: string; nom: string; eda: string; ciu: string; }) {
+  // const { Codigo, Nombre, Edad, Ciudad } = Heroes;
+  const { cod, nom, eda, ciu } = Heroes;
+  codeInput.value = cod;
+  nameHeroInput.value = nom;
+  edadInput.value = eda;
+  ciudadInput.value = ciu;
+
+  objProducto.cod = codeInput.value = cod;
+
+
+  // // formulario.querySelector('button[type="submit"]').textContent = 'Aceptar';
+  edit = true;
+}
+
 
 function cleanHTML() {
   const contenedor = document.querySelector('.tbody') as HTMLBodyElement;
