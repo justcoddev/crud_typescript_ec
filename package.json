@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "webpack serve --mode development --open "
+    "start": "webpack serve --mode development"
   },
   "author": "",
   "license": "ISC"
