@@ -149,32 +149,72 @@ function mostrarProducto() {
   listarHeroes.forEach(Heroes => {
     const { cod, nom, eda, ciu } = Heroes;
 
-    const parrafo = document.createElement('p');
-    parrafo.textContent = `${cod} - ${nom} - ${eda} - ${ciu} - `;
-    // parrafo.textContent = `${codeInput.value} - ${nameHeroInput.value} - ${edadInput.value} - ${ciudadInput.value} - `;
-    // estaba id aqui debajo
+    // const parrafo = document.createElement('tr');
+    // parrafo.textContent = `${cod} - ${nom} - ${eda} - ${ciu} - `;
 
-    parrafo.dataset.id = cod;
+    // const dato1 = document.createElement('td');
+    // dato1.textContent = `${cod}`;
+    ///////////////////////////////////////
+    // let tbody = document.createElement('tbody');
+
+
+    // contenedor.appendChild(tbody);
+
+    let row_2 = document.createElement('tr');
+    let row_2_data_1 = document.createElement('td');
+    row_2_data_1.innerHTML = `${cod}`;
+    let row_2_data_2 = document.createElement('td');
+    row_2_data_2.innerHTML = `${nom}`;
+    let row_2_data_3 = document.createElement('td');
+    row_2_data_3.innerHTML = `${eda}`;
+    let row_2_data_4 = document.createElement('td');
+    row_2_data_4.innerHTML = `${ciu}`;
+
+    row_2.appendChild(row_2_data_1);
+    row_2.appendChild(row_2_data_2);
+    row_2.appendChild(row_2_data_3);
+    row_2.appendChild(row_2_data_4);
+
+
+
+
+
+
+
+    /////////////////////////////////
+    // parrafo.dataset.id = cod;
 
     // button editar
     const edit_btn = document.createElement('button');
     edit_btn.onclick = () => cargarProductos(Heroes);
     edit_btn.textContent = 'Editar';
-    edit_btn.classList.add('btn', 'container__btn_editar');
-    parrafo.append(edit_btn);
+    edit_btn.classList.add('btn', 'btn-success', 'container__btn_editar');
+    // parrafo.append(edit_btn);
+
+    // ESTO ES DE LA TABLA CREDADA
+    let row_2_data_5 = document.createElement('td');
+    row_2_data_5.append(edit_btn);
+    row_2_data_5.append(" ");
+    // row_2.appendChild(row_2_data_5);
 
     // button eliminar
     const delete_btn = document.createElement('button');
     delete_btn.onclick = () => eliminarProductos(cod);
     delete_btn.textContent = 'Eliminar';
-    delete_btn.classList.add('btn', 'container__btn_delete');
-    parrafo.append(delete_btn);
+    delete_btn.classList.add('btn', 'btn-danger', 'container__btn_delete');
+    // parrafo.append(delete_btn);
 
-    const hr = document.createElement('hr');
+    // ESTO ES DE LA TABLA CREDADA
+    row_2_data_5.append(delete_btn);
+    row_2.appendChild(row_2_data_5);
 
-    contenedor.appendChild(parrafo);
-    contenedor.appendChild(hr);
 
+    // const hr = document.createElement('hr');
+
+    // contenedor.appendChild(parrafo);
+    // contenedor.appendChild(hr);
+
+    contenedor.appendChild(row_2);
   });
   console.log(listarHeroes);
   console.log(codeInput.value, nameHeroInput.value, edadInput.value, ciudadInput.value);
