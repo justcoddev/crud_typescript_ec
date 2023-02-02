@@ -15,7 +15,6 @@
     "webpack-cli": "^4.7.2"
   },
   "scripts": {
-    "build": "tsc",
     "start": "webpack serve --mode development --open --port=8083"
   },
   "author": "",
